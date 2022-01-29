@@ -1,7 +1,5 @@
-import java.util.function.BiFunction;
-import java.util.function.BiPredicate;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.function.*;
+import java.util.stream.Stream;
 
 public class FunctionalInterfaces {
     public static void main(String[] args) {
@@ -32,10 +30,49 @@ public class FunctionalInterfaces {
 
         //BiFunction
         BiFunction<Integer,Integer,Integer> biFunction=(i,j)-> i*j;
-        System.out.println("Bi-Function"+biFunction.apply(20,30));
+        System.out.println("Bi-Function"+biFunction.apply(20,30)+"\n\n");
 
+        // Consumer
+        Consumer<String> printConsumer = t -> System.out.println(t);
+        Stream<String> cities = Stream.of("Sydney", "Dhaka", "New York", "London");
+        cities.forEach(printConsumer);
 
+        // Supplier
+        Supplier<Double> doubleSupplier1 = () -> Math.random();
+        DoubleSupplier doubleSupplier2 = Math::random;
 
+        System.out.println("\n\nSupplier \n"+doubleSupplier1.get());
+        System.out.println(doubleSupplier2.getAsDouble());
 
     }
 }
+/*
+OUTPUT
+
+Length check is greater than 5? true
+Length check if its greater than 5 and its even? false
+Length check if its greater than 5 or its even? true
+Negate Length check if its greater than 5? false
+false
+
+
+Square using Function 25
+Cube using Function 125
+Square of Cube using Function 15625
+Cube of Square using Function 15625
+Bi-Function600
+
+
+Sydney
+Dhaka
+New York
+London
+
+
+Supplier
+0.03745314000185629
+0.1778147221571662
+
+Process finished with exit code 0
+
+ */
