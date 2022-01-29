@@ -15,7 +15,10 @@ public class Streams {
 
         // Filter Objects in Stream
         // Filtering student Object's having Age greater than 26
-        List<Student> studentList= Arrays.asList(new Student("XYZ",27),new Student("ABC",26));
+        List<Student> studentList= Arrays.asList(
+                new Student("XYZ",27),
+                new Student("ABC",26));
+
         ArrayList<Student> filter= (ArrayList<Student>) studentList.stream()
                 .filter(a -> a.getAge() > 26).collect(Collectors.toList());
         System.out.println("Students having age greater tha 26 "+filter);
