@@ -158,6 +158,29 @@ class Address{
 
     private String name;
     private int age;
-
-
 }
+
+/*
+OUTPUT
+
+Filtered Lists :[30, 40, 50]
+Students having age greater tha 26 [Student{name='XYZ', age=27}]
+Count :3
+Sum:120
+Average:OptionalDouble[40.0]
+Natural Sorting :[10, 20, 30, 40, 50]
+Comparator Ascending Sorting :[10, 20, 30, 40, 50]
+Comparator Descending Sorting :[50, 40, 30, 20, 10]
+Minimum :10
+Maximum:50
+Maximum :50
+Minimum:10
+Convert Stream to Array
+10 20 30 40 50
+ Convert Group to Stream
+1 4 9 16 4356 25
+ Sorted Student Objects[Student{name='ABC', age=26}, Student{name='XYZ', age=27}]
+
+ Filtered objects of object[Person{name='XYZ', address=[Address{city='Pune'}, Address{city='Delhi'}]}]
+
+ */
