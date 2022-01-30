@@ -53,8 +53,31 @@ public class SynchronizedExamples{
         MyThread2 t2=new MyThread2(obj);
         t1.start();
         t2.start();
-        //System.out.println("Closing Balance"+obj.balance);
     }
 }
 
+/*
+Thread-0
+999
+Thread-0
+997
+Thread-0
+994
+Thread-0
+990
+Thread-0
+985
+Thread-1
+1185
+Thread-1
+1385
+Thread-1
+1585
+Thread-1
+1785
+Thread-1
+1985
 
+Process finished with exit code 0
+
+ */

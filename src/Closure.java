@@ -13,15 +13,10 @@
             int y=90;
             //the method parses two parameters i.e. x and the operate() method of the Operation interface
             //implementation of closure in lambda expression
-            doSum(x, new Operation()
-            {
-                //overrides the operate() method
-                @Override
-                public void operate(int n)
-                {
-                    //prints the result
-                    System.out.println("Sum is: "+(n+y));
-                }
+            //overrides the operate() method
+            doSum(x, n -> {
+                //prints the result
+                System.out.println("Sum is: "+(n+y));
             });
         }
         private static void doSum(int i, Operation op)
@@ -30,3 +25,7 @@
         }
     }
 
+/*
+Sum is: 110
+
+ */

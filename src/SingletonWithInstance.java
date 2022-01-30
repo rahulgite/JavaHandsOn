@@ -15,3 +15,8 @@ enum ABC{
         System.out.println(i);
     }
 }
+
+/*
+10
+20
+ */
