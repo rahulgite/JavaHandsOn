@@ -1,3 +1,5 @@
+package concepts;
+
 import java.util.HashMap;
 
 public class MapKeyTwice {

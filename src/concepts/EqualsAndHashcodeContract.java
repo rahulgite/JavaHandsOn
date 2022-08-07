@@ -1,3 +1,5 @@
+package concepts;
+
 import java.util.Objects;
 
 public class EqualsAndHashcodeContract {

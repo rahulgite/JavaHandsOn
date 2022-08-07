@@ -1,3 +1,5 @@
+package concepts;
+
 import java.io.Serializable;
 
 public class SingletonDoubleLock {
@@ -24,7 +26,7 @@ class Singleton1 implements Serializable {
 
     public static Singleton1 getInstance( ) {
         if(singleton==null){
-            //synchronized (Singleton1.class){
+            //synchronized (concepts.Singleton1.class){
                 if(singleton==null){
                     singleton=new Singleton1();
                 }

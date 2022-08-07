@@ -1,5 +1,6 @@
+package concepts;
 
-    @FunctionalInterface
+@FunctionalInterface
     interface Operation
     {
         void operate(int n);
@@ -11,7 +12,7 @@
         {
             int x=20;
             int y=90;
-            //the method parses two parameters i.e. x and the operate() method of the Operation interface
+            //the method parses two parameters i.e. x and the operate() method of the concepts.Operation interface
             //implementation of closure in lambda expression
             //overrides the operate() method
             doSum(x, n -> {

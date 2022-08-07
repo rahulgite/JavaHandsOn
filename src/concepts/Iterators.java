@@ -1,3 +1,5 @@
+package concepts;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -8,7 +10,7 @@ public class Iterators {
         for (int i = 0; i < 10; i++)
             al.add(i);
 
-        Iterator itr = al.iterator();
+        Iterator<Integer> itr = al.iterator();
 
         System.out.println(itr.next());
         al.add(11);

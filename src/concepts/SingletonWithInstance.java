@@ -1,3 +1,5 @@
+package concepts;
+
 public class SingletonWithInstance {
     public static void main(String[] args) {
         ABC a1= ABC.INSTANCE;

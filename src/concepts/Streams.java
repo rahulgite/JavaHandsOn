@@ -1,3 +1,5 @@
+package concepts;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -17,7 +19,7 @@ public class Streams {
         // Filtering student Object's having Age greater than 26
         List<Student> studentList= Arrays.asList(
                 new Student("XYZ",27),
-                new Student("ABC",26));
+                new Student("concepts.ABC",26));
 
         ArrayList<Student> filter= (ArrayList<Student>) studentList.stream()
                 .filter(a -> a.getAge() > 26).collect(Collectors.toList());
@@ -75,12 +77,12 @@ public class Streams {
         //Applying sortByNameAndAge Comparator in Stream using sorted function.
         ArrayList<Student> sortStudent=(ArrayList<Student>) studentList.stream()
                 .sorted(sortByNameAndAge).collect(Collectors.toList());
-        System.out.println("\n Sorted Student Objects"+sortStudent);
+        System.out.println("\n Sorted concepts.Student Objects"+sortStudent);
 
         //Filtering Objects within Object
         List<Person> p=Arrays.asList(
                 new Person("XYZ", new Address[]{new Address("Pune"), new Address("Delhi")}),
-                new Person("ABC", new Address[]{new Address("Bhopal"), new Address("Delhi")}),
+                new Person("concepts.ABC", new Address[]{new Address("Bhopal"), new Address("Delhi")}),
                 new Person("XYZ", new Address[]{new Address("Srinagar"), new Address("Rajkot")}));
 
         List<Person> f=p.stream().filter(a->a.name.contains("XYZ") )
@@ -98,7 +100,7 @@ class Person{
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "concepts.Person{" +
                 "name='" + name + '\'' +
                 ", address=" + Arrays.toString(address) +
                 '}';
@@ -116,7 +118,7 @@ class Address{
 
     @Override
     public String toString() {
-        return "Address{" +
+        return "concepts.Address{" +
                 "city='" + city + '\'' +
                 '}';
     }
@@ -133,7 +135,7 @@ class Address{
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "concepts.Student{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
@@ -164,7 +166,7 @@ class Address{
 OUTPUT
 
 Filtered Lists :[30, 40, 50]
-Students having age greater tha 26 [Student{name='XYZ', age=27}]
+Students having age greater tha 26 [concepts.Student{name='XYZ', age=27}]
 Count :3
 Sum:120
 Average:OptionalDouble[40.0]
@@ -179,8 +181,8 @@ Convert Stream to Array
 10 20 30 40 50
  Convert Group to Stream
 1 4 9 16 4356 25
- Sorted Student Objects[Student{name='ABC', age=26}, Student{name='XYZ', age=27}]
+ Sorted concepts.Student Objects[concepts.Student{name='concepts.ABC', age=26}, concepts.Student{name='XYZ', age=27}]
 
- Filtered objects of object[Person{name='XYZ', address=[Address{city='Pune'}, Address{city='Delhi'}]}]
+ Filtered objects of object[concepts.Person{name='XYZ', address=[concepts.Address{city='Pune'}, concepts.Address{city='Delhi'}]}]
 
  */

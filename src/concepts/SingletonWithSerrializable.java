@@ -1,3 +1,5 @@
+package concepts;
+
 import java.io.*;
 
 public class SingletonWithSerrializable {
@@ -50,10 +52,10 @@ class Singleton implements Serializable {
     }
 //
 //    public static void main(String[] args) {
-//        Singleton s1 = getInstance();
+//        concepts.Singleton s1 = getInstance();
 //        System.out.println(s1.hashCode());
 //
-//        Singleton s2 = getInstance();
+//        concepts.Singleton s2 = getInstance();
 //        System.out.println(s2.hashCode());
 //    }
 }

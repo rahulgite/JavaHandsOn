@@ -1,3 +1,5 @@
+package concepts;
+
 public class OverloadingQuestions {
     static void m1(Object o){
         System.out.println("Object Called");
@@ -23,8 +25,8 @@ public class OverloadingQuestions {
         System.out.println(">> null Passed");
         //m1(null);
         //java: reference to m1 is ambiguous
-        //  both method m1(java.lang.String) in OverloadingQuestions and
-        //  method m1(java.lang.Integer) in OverloadingQuestions match
+        //  both method m1(java.lang.String) in concepts.OverloadingQuestions and
+        //  method m1(java.lang.Integer) in concepts.OverloadingQuestions match
     }
 }
 /*
@@ -40,6 +42,6 @@ Integer Called
 Object Called
 >> null Passed
 java: reference to m1 is ambiguous
-        both method m1(java.lang.String) in OverloadingQuestions and
-        method m1(java.lang.Integer) in OverloadingQuestions match
+        both method m1(java.lang.String) in concepts.OverloadingQuestions and
+        method m1(java.lang.Integer) in concepts.OverloadingQuestions match
  */
