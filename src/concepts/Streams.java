@@ -1,9 +1,6 @@
 package concepts;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -75,33 +72,77 @@ public class Streams {
                 .comparing(Student::getName)
                 .thenComparingInt(Student::getAge);
         //Applying sortByNameAndAge Comparator in Stream using sorted function.
-        ArrayList<Student> sortStudent=(ArrayList<Student>) studentList.stream()
-                .sorted(sortByNameAndAge).collect(Collectors.toList());
-        System.out.println("\n Sorted concepts.Student Objects"+sortStudent);
+        ArrayList<Student> sortStudent = (ArrayList<Student>) studentList.stream().sorted(sortByNameAndAge).collect(Collectors.toList());
+        System.out.println("\n Sorted concepts.Student Objects" + sortStudent);
 
         //Filtering Objects within Object
-        List<Person> p=Arrays.asList(
-                new Person("XYZ", new Address[]{new Address("Pune"), new Address("Delhi")}),
-                new Person("concepts.ABC", new Address[]{new Address("Bhopal"), new Address("Delhi")}),
-                new Person("XYZ", new Address[]{new Address("Srinagar"), new Address("Rajkot")}));
+        List<Person> p = Arrays.asList(
+                new Person("XYZ",1000, new Address[]{new Address("Pune"), new Address("Delhi")}),
+                new Person("concepts.ABC",2000, new Address[]{new Address("Bhopal"), new Address("Delhi")}),
+                new Person("XYZ",3000, new Address[]{new Address("Srinagar"), new Address("Rajkot")}),
+                new Person("PQR",4000, new Address[]{new Address("Srinagar"), new Address("Rajkot")}));
 
-        List<Person> f=p.stream().filter(a->a.name.contains("XYZ") )
-                .filter(b->{
-                    return Arrays.stream(b.address)
-                            .filter(c -> c.city.contains("Delhi")).collect(Collectors.toList()).size()>0;
-                } )
-                .collect(Collectors.toList());
-        System.out.println("\n Filtered objects of object"+f);
+        List<Person> f = p.stream().filter(a -> a.name.contains("XYZ")).filter(b -> {
+            return Arrays.stream(b.address).filter(c -> c.city.contains("Delhi")).collect(Collectors.toList()).size() > 0;
+        }).collect(Collectors.toList());
+        System.out.println("\n Filtered objects of object" + f);
+
+
+        //return/display all employees detail who has maximum salary
+        System.out.println("\n maximum salary : ");
+        p.stream()
+                .collect(Collectors.groupingBy(Person::getSalary, TreeMap::new, Collectors.toList()))
+                .lastEntry()
+                .getValue()
+                .forEach(System.out::println);
+
+
+        //return/display all employees detail who has minimum salary
+        System.out.println("\n minimum Salary : "+p.stream().collect(Collectors.minBy(Comparator.comparingDouble(Person::getSalary)))
+                .map(Person::getSalary)
+                .orElse(0));
     }
 }
 
 class Person{
     String name;
+    Integer salary;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Integer salary) {
+        this.salary = salary;
+    }
+
+    public Person(String name, Integer salary, Address[] address) {
+        this.name = name;
+        this.salary = salary;
+        this.address = address;
+    }
+
+    public Address[] getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address[] address) {
+        this.address = address;
+    }
 
     @Override
     public String toString() {
-        return "concepts.Person{" +
+        return "Person{" +
                 "name='" + name + '\'' +
+                ", salary=" + salary +
                 ", address=" + Arrays.toString(address) +
                 '}';
     }

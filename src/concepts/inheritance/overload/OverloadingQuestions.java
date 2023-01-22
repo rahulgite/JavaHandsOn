@@ -1,4 +1,4 @@
-package concepts;
+package concepts.inheritance.overload;
 
 public class OverloadingQuestions {
     static void m1(Object o){
@@ -25,8 +25,17 @@ public class OverloadingQuestions {
         System.out.println(">> null Passed");
         //m1(null);
         //java: reference to m1 is ambiguous
-        //  both method m1(java.lang.String) in concepts.OverloadingQuestions and
-        //  method m1(java.lang.Integer) in concepts.OverloadingQuestions match
+        //  both method m1(java.lang.String) in concepts.inheritance.overload.OverloadingQuestions and
+        //  method m1(java.lang.Integer) in concepts.inheritance.overload.OverloadingQuestions match
+
+        /*
+        Priority
+        1) Exact Match
+        2) Child Class
+        3) Parent Class
+         */
+
+
     }
 }
 /*
@@ -42,6 +51,6 @@ Integer Called
 Object Called
 >> null Passed
 java: reference to m1 is ambiguous
-        both method m1(java.lang.String) in concepts.OverloadingQuestions and
-        method m1(java.lang.Integer) in concepts.OverloadingQuestions match
+        both method m1(java.lang.String) in concepts.inheritance.overload.OverloadingQuestions and
+        method m1(java.lang.Integer) in concepts.inheritance.overload.OverloadingQuestions match
  */
