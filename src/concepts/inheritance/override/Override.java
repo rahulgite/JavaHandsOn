@@ -20,3 +20,9 @@ public class Override {
         parentChild.m1();
     }
 }
+
+/*
+Parent m1
+Child m1
+Child m1
+ */

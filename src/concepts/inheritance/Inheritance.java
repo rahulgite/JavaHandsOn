@@ -23,7 +23,7 @@ public class Inheritance {
         //superClass1.m2();
         System.out.println("\n Child to child :");
         SubClass subClass=new SubClass();
-        superClass.m1();
+        subClass.m1();
         subClass.m2();
     }
 }

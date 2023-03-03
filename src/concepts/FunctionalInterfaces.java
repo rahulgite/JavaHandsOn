@@ -43,6 +43,7 @@ public class FunctionalInterfaces {
         Supplier<Double> doubleSupplier1 = () -> Math.random();
         DoubleSupplier doubleSupplier2 = Math::random;
 
+
         System.out.println("\n\nSupplier \n"+doubleSupplier1.get());
         System.out.println(doubleSupplier2.getAsDouble());
 

@@ -1,6 +1,7 @@
 package concepts;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -45,13 +46,13 @@ public class Streams {
 
         // Minimum and Maximum using Stream
         //Minimum using min function
-        System.out.println("Minimum :"+ rawList.parallelStream().min((x,y)->x.compareTo(y)).get());
+        System.out.println("Minimum :"+ rawList.parallelStream().min(Integer::compareTo).get());
         //Maximum using min function
-        System.out.println("Maximum:"+ rawList.parallelStream().min((x,y)->y.compareTo(x)).get());
+        System.out.println("Maximum:"+ rawList.parallelStream().min(Comparator.reverseOrder()).get());
         //Maximum using max function
-        System.out.println("Maximum :"+ rawList.parallelStream().max((x,y)->x.compareTo(y)).get());
+        System.out.println("Maximum :"+ rawList.parallelStream().max(Integer::compareTo).get());
         //Minimum using max function
-        System.out.println("Minimum:"+ rawList.parallelStream().max((x,y)->y.compareTo(x)).get());
+        System.out.println("Minimum:"+ rawList.parallelStream().max(Comparator.reverseOrder()).get());
 
         // ToArray in Stream
         //Converting Stream into Array
@@ -98,9 +99,39 @@ public class Streams {
 
 
         //return/display all employees detail who has minimum salary
-        System.out.println("\n minimum Salary : "+p.stream().collect(Collectors.minBy(Comparator.comparingDouble(Person::getSalary)))
+        System.out.println("\n minimum Salary : " + p.stream().collect(Collectors.minBy(Comparator.comparingDouble(Person::getSalary)))
                 .map(Person::getSalary)
                 .orElse(0));
+
+        System.out.println("\n Duplicate : ");
+        Set<Integer> items = new HashSet<>();
+        System.out.println(Stream.of(1, 1, 3, 4, 66, 5, 5).filter(a -> !items.add(a)).collect(Collectors.toSet()));
+
+        System.out.println("\n Duplicate Frequency: ");
+        List<Integer> list = Arrays.asList(1, 1, 3, 4, 66, 5, 5);
+        System.out.println(list.stream().filter(i -> Collections.frequency(list, i) > 1)
+                .collect(Collectors.toSet()));
+
+        System.out.println("\n Duplicate Grouping: ");
+        System.out.println(Stream.of(1, 1, 3, 4, 66, 5, 5).collect(
+                        Collectors.groupingBy(
+                                Function.identity(),
+                                Collectors.counting()))
+                .entrySet()
+                .stream().filter(v -> v.getValue() > 1).map(Map.Entry::getKey).collect(Collectors.toList()));
+
+        System.out.println("\n Duplicate Character: ");
+        String input = "RahulGiteRahul";
+        // convert string into stream
+        System.out.println(input
+                .chars().mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream().filter(v -> v.getValue() > 1).map(Map.Entry::getKey).collect(Collectors.toList()));
+
+        System.out.println("\n Duplicate Character Frequency: ");
+
+
     }
 }
 
